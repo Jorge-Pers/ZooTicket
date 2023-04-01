@@ -9,23 +9,28 @@ class ZooTicket():
         self.ticket_free = []
         self.ticket_paid =[]
         self.count = 0
-
+        
+   # Store all ages in a list
     def CalculateAge(self):
         while self.count < self.num_ticket:
             age = int(input(f'Please enter the age of person {self.count+1}: \n'))
             self.num_ages.append(age)
             self.count+=1
-
+            
+    # Store ages in different lists in the range.
         for i in self.num_ages:
             if i <=3 or i >= 60 :
                 self.ticket_free.append(i)
             else:
                 self.ticket_paid.append(i)
                 
+    #Calculate the price for the tickets with descount.         
     def CalculatePrice(self):
         if len(self.ticket_paid)>=3:
             price = (len(self.ticket_paid)*self.price_ticket)-TicketZoo.descount_ticket*self.price_ticket
             print(f"\nGreat you have got a discount of {self.descount_ticket*10}%")
+     
+    #Calculate full price's ticket.
         else:
             price = len(self.ticket_paid)*self.price_ticket
 
